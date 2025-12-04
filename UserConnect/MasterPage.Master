@@ -1,0 +1,131 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="UserConnect.MasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+            <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        background: #f6f7fb;
+        color: #333;
+    }
+
+    nav {
+        width: 100%;
+        background: linear-gradient(135deg, #7b4397, #dc2430);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 60px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .logo {
+        font-size: 24px;
+        font-weight: 600;
+        color: #fff;
+        letter-spacing: 1px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+        transform: scale(1.05);
+        text-shadow: 0 0 8px rgba(255,255,255,0.6);
+    }
+
+    .nav-links {
+        display: flex;
+        gap: 20px;
+    }
+
+    .nav-links a {
+        color: #fff;
+        text-decoration: none;
+        font-weight: 500;
+        padding: 8px 14px;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+
+    .nav-links a::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 0%;
+        height: 2px;
+        background: #fff;
+        transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover::after {
+        width: 100%;
+    }
+
+    .nav-links a:hover {
+        background: rgba(255,255,255,0.2);
+    }
+
+    .content {
+        padding: 40px 80px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 900px) {
+        nav {
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 15px 30px;
+        }
+
+        .nav-links {
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .content {
+            padding: 30px;
+        }
+    }
+</style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <nav>
+            <div class="logo">UserConnect</div>
+            <div class="nav-links">
+
+                <asp:HyperLink ID="hlHome" runat="server" NavigateUrl="~/Home.aspx" Text="Home" />
+                <asp:HyperLink ID="hlHome1" runat="server" NavigateUrl="~/Default.aspx" Text="Home" />
+                <asp:HyperLink ID="hlRegister" runat="server" NavigateUrl="~/Register.aspx" Text="Registration" />
+                <asp:HyperLink ID="hlLogin" runat="server" NavigateUrl="~/Login.aspx" Text="Login" />
+                <asp:HyperLink ID="hlProfile" runat="server" NavigateUrl="~/Profile.aspx" Text="User Profile" />
+                <asp:HyperLink ID="hlUpdateProfile" runat="server" NavigateUrl="~/UpdateProfile.aspx" Text="Update Profile" />
+                <asp:HyperLink ID="hlAddAchievements" runat="server" NavigateUrl="~/AddAchievement.aspx" Text="Add Achievements" />
+                <asp:HyperLink ID="hlUpdateAchievements" runat="server" NavigateUrl="~/UpdateAchievement.aspx" Text="Update Achievements" />
+                <asp:HyperLink ID="hlViewAchievements" runat="server" NavigateUrl="~/ViewAchievements.aspx" Text="Manage Achievements" />
+                  <asp:HyperLink ID="hlLogout" runat="server" NavigateUrl="~/Logout.aspx" Text="Logout" />
+            </div>
+        </nav>
+        <div class="content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+        </div>
+    </form>
+</body>
+</html>
